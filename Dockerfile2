@@ -1,0 +1,15 @@
+# Specify a base image
+FROM node:alpine
+WORKDIR '/app'
+COPY package.json .
+RUN npm install
+COPY . .
+RUN npm run build
+
+#start 2nd phase
+FROM nginx
+# only copy the following
+COPY --from=0 /app/build /usr/share/nginx/html 
+
+#nginx starts automatically
+
