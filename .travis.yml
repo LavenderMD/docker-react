@@ -6,7 +6,7 @@ services:
 
 before_install:
     #can use any tag but convention is <github login> / <repository name> 
-        - docker build -t lavendermd/docker-react -f Dockerfile.dev.
+        - docker build -t lavendermd/docker-react -f Dockerfile.dev .
 
 #script contains all commands that need to be executed to run test suite
 script:
